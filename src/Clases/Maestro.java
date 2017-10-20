@@ -22,6 +22,7 @@ public Maestro(String nombre,String Titulo,double Salario,String usuario,String 
     this.usuario=usuario;
     this.contrasena=contra;
     this.Max_Clases=Max;
+    
 }
     public String getNombre() {
         return this.nombre;
