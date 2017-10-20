@@ -15,84 +15,91 @@ public class Alumno {
     private double dinero_disp;
     private String usuario;
     private String contrasena;
-    private ArrayList<String> clases;
-    private ArrayList<String> buzon;
-    
-    public String getNombre (){
+    private ArrayList<String> clases = new ArrayList();
+    private ArrayList<String> buzon = new ArrayList();
+
+    public Alumno(String nombre, String usuario, String contra, int Edad, double Dinero_Disponible) {
+        this.nombre = nombre;
+        this.usuario = usuario;
+        this.contrasena = contra;
+        this.edad = Edad;
+        this.dinero_disp = Dinero_Disponible;
+    }
+
+    public String getNombre() {
         return this.nombre;
     }
-    
-    public void  setNombre(String nombre){
-          this.nombre=nombre;
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    
-    public int getCuenta (){
+
+    public int getCuenta() {
         return this.num_Cuenta;
     }
-    
-    public void  setCuenta(int  Cuenta){
-          this.num_Cuenta=Cuenta;
+
+    public void setCuenta(int Cuenta) {
+        this.num_Cuenta = Cuenta;
     }
-   
-     public String getcarrera (){
+
+    public String getcarrera() {
         return this.carrera;
     }
-    
-    public void  setcarrera(String Carrera ){
-          this.carrera=Carrera;
+
+    public void setcarrera(String Carrera) {
+        this.carrera = Carrera;
     }
-    
-   
-    
-     public int getedad (){
+
+    public int getedad() {
         return this.edad;
     }
-    
-    public void  setedada(int edad ){
-          this.edad=edad;
+
+    public void setedada(int edad) {
+        this.edad = edad;
     }
-    
-      public double getdinero_disp (){
+
+    public double getdinero_disp() {
         return this.dinero_disp;
     }
-    
-    public void  setdinero(double dinero_disp ){
-          this.dinero_disp=dinero_disp;
+
+    public void setdinero(double dinero_disp) {
+        this.dinero_disp = dinero_disp;
     }
-    
-     public String getUsuario (){
+
+    public String getUsuario() {
         return this.usuario;
     }
-      public void  setUsuario(String usuario){
-          this.usuario=usuario;
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
-    
-    public void  setcontrasena(String contrasena){
-          this.contrasena=contrasena;
+
+    public void setcontrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
-    
-     public String getcontra (){
+
+    public String getcontra() {
         return this.contrasena;
     }
-     
-     
-     public void  setclases(String clase){
-         clases.add(clase);
+
+    public void setclases(String clase) {
+        clases.add(clase);
     }
-    
-     public ArrayList Getclases (){
+
+    public ArrayList Getclases() {
         return this.clases;
     }
-     
-      public void  setbuzon(String mensaje){
-         buzon.add(mensaje);
+
+    public void setbuzon(String mensaje) {
+        buzon.add(mensaje);
     }
-    
-     public ArrayList getbuzon (){
+
+    public ArrayList getbuzon() {
         return this.buzon;
     }
+
     public String toString() {
         return "Nombre:    " + nombre + "Numero de Cuenta: " + num_Cuenta + "      Carrera: " + carrera + "    Edad: " + edad + "  Dinero Disponible:" + dinero_disp + " Usuario:  " + usuario + " Contraseña: " + contrasena + " Clases: " + clases + "   Buzon: " + buzon;
     }//Fin dle metodo de formateo.
-    
+
 }
