@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Clase {
 
     private String nombre;
-    private int seccion;
+    private String seccion;
     private int Max_Alumnos;
     private String Maestro;
     private int UV;
@@ -15,7 +15,7 @@ public class Clase {
     Clase(){
         
     }
-    public Clase(String nombre, int seccion, int max, int uv) {
+    public Clase(String nombre, String seccion, int max, int uv) {
         this.nombre = nombre;
         this.seccion = seccion;
         Max_Alumnos = max;
@@ -37,11 +37,11 @@ public class Clase {
         this.Maestro = Maestro;
     }
 
-    public int getseccion() {
+    public String getseccion() {
         return this.seccion;
     }
 
-    public void setseccion(int seccion) {
+    public void setseccion(String seccion) {
         this.seccion = seccion;
     }
 

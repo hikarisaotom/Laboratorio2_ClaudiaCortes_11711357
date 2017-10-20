@@ -64,8 +64,8 @@ public Maestro(String nombre,String Titulo,double Salario,String usuario,String 
         return this.contrasena;
     }
 
-    public void setclases(String clase) {
-        Clases_Impartidas.add(clase);
+    public void setclases(String clasei) {
+         Clases_Impartidas.add(clasei);
     }
 
     public ArrayList Getclases() {
