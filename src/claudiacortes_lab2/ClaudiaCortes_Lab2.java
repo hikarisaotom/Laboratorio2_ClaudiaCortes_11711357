@@ -118,4 +118,36 @@ public class ClaudiaCortes_Lab2 {
 
         }//Fin del while del maestro.
     }//Fin del metodo que rea Maestros 
+    
+     public static void Crear_Alumno() {
+        String S = "";
+        String SEC = "";
+        int Num_Maestros = Integer.parseInt(JOptionPane.showInputDialog("Cuantas Clases Desea Matricular:  \n"));
+        while (Num_Maestros > 0) {
+            String nombre = JOptionPane.showInputDialog("Ingrese el Nombre del maestro:  \n");
+            String Titulo = JOptionPane.showInputDialog("Ingrese el Titulo que posee el Maestro:  \n");
+            double Salario = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el salario del maestro:  \n"));
+            String usuario = JOptionPane.showInputDialog("Ingrese el Usuario:  \n");
+            String contra = JOptionPane.showInputDialog("Ingrese la contraseña del maestro:  \n");
+            int Max = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el maximo de clases que va a impartir:  \n"));
+            for (Object T : Clases) {
+                S += "" + Clases.indexOf(T) + "-" + T + "\n";
+            }
+            Maestro M = new Maestro(nombre, Titulo, Salario, usuario, contra, Max);
+            while (Max > 0) {
+                int Pos = Integer.parseInt(JOptionPane.showInputDialog("Clases Disponibles: \n" + S + "\n Ingrese el Numero de la clase: "));
+
+                String Seccion = ((Clase) Clases.get(Pos)).getseccion();
+                System.out.println("LA SECCION" + Seccion);
+                SEC = Seccion;
+                M.setclases(SEC);
+                ((Clase) Clases.get(Pos)).setMaestro(nombre);
+                Max--;
+            }//Fin de agregar las clases
+            Maestros.add(M);
+
+            Num_Maestros--;
+
+        }//Fin del while del maestro.
+    }//Fin del metodo que rea Maestros 
 }//Fin de la clase.
