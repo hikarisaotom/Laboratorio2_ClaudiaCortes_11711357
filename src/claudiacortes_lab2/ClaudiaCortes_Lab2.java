@@ -5,12 +5,13 @@ import javax.swing.JOptionPane;
 import Clases.Alumno;
 import Clases.Clase;
 import Clases.Maestro;
+import javax.swing.text.StyledEditorKit;
 
 /**
  * @author Claudia Cortes
  */
 public class ClaudiaCortes_Lab2 {
-
+    private static int Indice=0;
     private static ArrayList Clases = new ArrayList();
     private static ArrayList Maestros = new ArrayList();
     private static ArrayList Alumnos = new ArrayList();
@@ -61,17 +62,14 @@ public class ClaudiaCortes_Lab2 {
 
                         if (Alumnos.size() != 0) {
                             Opcion2 = JOptionPane.showInputDialog("Ingrese su opcion:  \n"
-                                    + "A-Crear un nuevo alumno\n"
-                                    + "B-Matricular\n");
+                                    + "A-Crear un nuevo alumno\n");
                             Opcion2 = "" + Opcion2.charAt(0);
                             Opcion2 = Opcion2.toUpperCase();
                             switch (Opcion2) {
                                 case "A":
                                     Crear_Alumno();
                                     break;
-                                case "B":
-                                    Matricular();
-                                    break;
+                                
                                 default:
                                     System.out.println("INVALIDO");
                                     break;
@@ -84,16 +82,21 @@ public class ClaudiaCortes_Lab2 {
                     }
                     break;
                 case "C"://Brindar Acceso.
-                  String Opcion3= JOptionPane.showInputDialog("Seleccione el tipo de usuario:\n"
-                           + "a-Maestro\n"
-                           + "b-Alumno");
-                  Opcion3=""+Opcion3.charAt(0);
-                  Opcion3=Opcion3.toUpperCase();
-                    if (Opcion3=="A") {
-                        LogMaestro();
-                    }else{
-                        LogAlumno();
+                    String Opcion3 = JOptionPane.showInputDialog("Seleccione el tipo de usuario:\n"
+                            + "a-Maestro\n"
+                            + "b-Alumno");
+                    Opcion3 = "" + Opcion3.charAt(0);
+                    Opcion3 = Opcion3.toUpperCase();
+                    System.out.println("Opcion3" + Opcion3);
+                    switch (Opcion3) {
+                        case "A":
+                            LogMaestro();
+                            break;
+                        case "B":
+                            LogAlumno();
+                            break;
                     }
+
                     break;
                 default: //Opcion no valida
                     String S = "";
@@ -120,9 +123,29 @@ public class ClaudiaCortes_Lab2 {
         }
         while (Num > 0) {
             //VALIDAR CADA DATO.
+            int Val1=0;
             String nombre = JOptionPane.showInputDialog("Ingrese el Nombre de la clase:  \n");
-
+            /*while (Val1 == 0) {
+                Val1=1;
+                for (Object T : Clases) {
+                    if (((Clase)T).getNombre().equals(nombre)) {
+                        Val1=0;
+                    }
+                }
+                nombre = JOptionPane.showInputDialog("Ingrese el Nombre de la clase:  \n");
+            }*/
             String seccion = JOptionPane.showInputDialog("Ingrese la seccion de la clase:  \n");
+             int Val2=0;
+            
+            /*while (Val2== 0) {
+                Val2=1;
+                for (Object T : Clases) {
+                    if (((Clase)T).getseccion().equals(seccion)) {
+                        Val2=0;
+                    }
+                }
+                seccion = JOptionPane.showInputDialog("Ingrese la seccion de la clase:  \n");
+            }*/
             int max = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad maxima de alumnos:  \n"));
             int uv = Integer.parseInt(JOptionPane.showInputDialog("Ingrese La cantidad de Unidades Valorativas en la clase:  \n"));
             Clases.add(new Clase(nombre, seccion, max, uv));
@@ -130,37 +153,80 @@ public class ClaudiaCortes_Lab2 {
         }
     }
 
-    public static void Matricular() {
-            
-    }
-    
-      public static void LogMaestro() {
-        String Usuario=JOptionPane.showInputDialog("Bienvenido Maestro\n Ingrese su Nombre de usuario:");
-        String Contra=JOptionPane.showInputDialog("Ingrese su contraseña:");
-          for (int i = 0; i <Maestros.size(); i++) {
-              if (((Maestro)Maestros.get(i)).getcontra().equals(Contra)&&((Maestro)Maestros.get(i)).getUsuario().equals(Usuario)) {
-                  JOptionPane.showInputDialog("Acceso Permitido: \n");
-              }else{
-                  JOptionPane.showMessageDialog(null,"ERROR EN LOS DATOS");
-              }
-          }
-      
-      }
-
-      
-        public static void LogAlumno() {
-        String Usuario=JOptionPane.showInputDialog("Bienvenido Alumno\n Ingrese su Nombre de usuario:");
-        String Contra=JOptionPane.showInputDialog("Ingrese su contraseña:");
+    public static void Matricular(int indice ) {//Alumnos.
         
-          for (int i = 0; i <Alumnos.size(); i++) {
-              if (((Alumno)Alumnos.get(i)).getcontra().equals(Contra)&&((Maestro)Maestros.get(i)).getUsuario().equals(Usuario)) {
-                  JOptionPane.showInputDialog("Acceso Permitido: \n");
-              }else{
-                  JOptionPane.showMessageDialog(null,"ERROR EN LOS DATOS");
-              }
-          }
+        String Respuesta=JOptionPane.showInputDialog("Ingrese la opcion que desea hacer: \n"
+                + "A-Cambiar Nombre"
+                + "B-Usuario"
+                + "C-Contraseña"
+                + "D-Ver secciones"
+                + "E-Matricular"
+                + "F-Saldo Disponible");
+        String S="";
+         for (Object T : Alumnos) {
+                        S += "" + Alumnos.indexOf(T) + "-" + T + "\n";
+                    }
+        switch(Respuesta){
+            case "A":
+                Respuesta=JOptionPane.showInputDialog("Ingrese El nuevo dato");
+               ((Alumno)Alumnos.get(indice)).setNombre(Respuesta);
+                break;
+            case "B":
+                 Respuesta=JOptionPane.showInputDialog("Ingrese El nuevo dato");
+               ((Alumno)Alumnos.get(indice)).setUsuario(Respuesta);
+                break;
+            case "C":
+                 Respuesta=JOptionPane.showInputDialog("Ingrese El nuevo dato");
+             ((Alumno)Alumnos.get(indice)).setcontrasena(Respuesta);
+                break;
+            case "D":
+              
+                JOptionPane.showMessageDialog(null,"Sus Clases: \n"+((Alumno)Alumnos.get(indice)).Getclases());
+                break;
+            case "E":
+                 Respuesta=JOptionPane.showInputDialog("Ingrese El nuevo dato");
+                JOptionPane.showInputDialog(null,"Ingrese la seccion que desea cambiar"+S);
+                break;
+            case "F":
+                 Respuesta=JOptionPane.showInputDialog("Ingrese El nuevo dato");
+                ((Alumno)Alumnos.get(indice)).setdinero(Double.parseDouble(Respuesta));
+                break;
+        }
+        
     }
 
+    public static void LogMaestro() {
+        String Usuario = JOptionPane.showInputDialog("Bienvenido Maestro\n Ingrese su Nombre de usuario:");
+        String Contra = JOptionPane.showInputDialog("Ingrese su contraseña:");
+        for (int i = 0; i < Maestros.size(); i++) {
+            if (((Maestro) Maestros.get(i)).getcontra().equals(Contra) && ((Maestro) Maestros.get(i)).getUsuario().equals(Usuario)) {
+                JOptionPane.showInputDialog("Acceso Permitido: \n");
+                Indice=i;
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR EN LOS DATOS");
+            }
+        }
+
+    }
+
+    public static void LogAlumno() {
+        String Usuario = JOptionPane.showInputDialog("Bienvenido Alumno\n Ingrese su Nombre de usuario:");
+        String Contra = JOptionPane.showInputDialog("Ingrese su contraseña:");
+        String S="";
+            for (Object T : Clases) {
+                        S += "" + Clases.indexOf(T) + "-" + T + "\n";
+                    }
+        for (int i = 0; i < Alumnos.size(); i++) {
+            if (((Alumno) Alumnos.get(i)).getcontra().equals(Contra) && ((Maestro) Maestros.get(i)).getUsuario().equals(Usuario)) {
+                JOptionPane.showMessageDialog(null,"Acceso Permitido: \n Las clases disponibles son: \n");
+                Indice=i;
+                Matricular(i);
+                break;
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR EN LOS DATOS");
+            }
+        }
+    }
 
     public static void Crear_Maestro() {
         String S = "";
@@ -218,8 +284,8 @@ con las secciones de la clase) y un buzón. */
             String usuario = JOptionPane.showInputDialog("Ingrese el Usuario:  \n");
             String contra = JOptionPane.showInputDialog("Ingrese la contraseña del alumno:  \n");
             int Max = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el maximo de clases que va matricular:  \n"));
-            for (Object T : Clases) {
-                S += "" + Clases.indexOf(T) + "-" + T + "\n";
+            for (Object T : Alumnos) {
+                S += "" + Alumnos.indexOf(T) + "-" + T + "\n";
             }
 
             Alumno M = new Alumno(nombre, usuario, contra, Edad, Dinero_Disponible, carrera);
