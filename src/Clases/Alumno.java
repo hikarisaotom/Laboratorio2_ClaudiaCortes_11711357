@@ -18,12 +18,13 @@ public class Alumno {
     private ArrayList<String> clases = new ArrayList();
     private ArrayList<String> buzon = new ArrayList();
 
-    public Alumno(String nombre, String usuario, String contra, int Edad, double Dinero_Disponible) {
+    public Alumno(String nombre, String usuario, String contra, int Edad, double Dinero_Disponible, String Carrera) {
         this.nombre = nombre;
         this.usuario = usuario;
         this.contrasena = contra;
         this.edad = Edad;
         this.dinero_disp = Dinero_Disponible;
+        this.carrera = carrera;
     }
 
     public String getNombre() {

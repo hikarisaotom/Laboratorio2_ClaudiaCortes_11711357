@@ -1,6 +1,7 @@
 package Clases;
 
 import java.util.ArrayList;
+
 /**
  * @author Claudia Cortes
  */
@@ -9,18 +10,21 @@ public class Clase {
     private String nombre;
     private String seccion;
     private int Max_Alumnos;
-    private String Maestro="";
+    private String Maestro = "";
     private int UV;
-    private ArrayList<String> Alumnos =new ArrayList();
-    Clase(){
-        
+    private ArrayList<String> Alumnos = new ArrayList();
+
+    Clase() {
+
     }
+
     public Clase(String nombre, String seccion, int max, int uv) {
         this.nombre = nombre;
         this.seccion = seccion;
         Max_Alumnos = max;
         UV = uv;
     }
+
     public String getNombre() {
         return this.nombre;
     }

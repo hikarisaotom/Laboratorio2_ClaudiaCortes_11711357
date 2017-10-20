@@ -55,7 +55,7 @@ public class ClaudiaCortes_Lab2 {
 
                     break;
                 case "B"://Crear Alumnos.
-                    if ((Maestros.size() != 0 && Clases.size() != 0)) {
+                    if ((Maestros.size() == 0 && Clases.size() == 0)) {
                         JOptionPane.showMessageDialog(null, "No hay clases ni maestros registrados");
                     } else {
 
@@ -84,6 +84,16 @@ public class ClaudiaCortes_Lab2 {
                     }
                     break;
                 case "C"://Brindar Acceso.
+                  String Opcion3= JOptionPane.showInputDialog("Seleccione el tipo de usuario:\n"
+                           + "a-Maestro\n"
+                           + "b-Alumno");
+                  Opcion3=""+Opcion3.charAt(0);
+                  Opcion3=Opcion3.toUpperCase();
+                    if (Opcion3=="A") {
+                        LogMaestro();
+                    }else{
+                        LogAlumno();
+                    }
                     break;
                 default: //Opcion no valida
                     String S = "";
@@ -91,7 +101,10 @@ public class ClaudiaCortes_Lab2 {
                         S += "" + Clases.indexOf(T) + "-" + T + "\n";
                     }
                     for (Object T : Maestros) {
-                        S += "" + Clases.indexOf(T) + "-" + T + "\n";
+                        S += "" + Maestros.indexOf(T) + "-" + T + "\n";
+                    }
+                    for (Object T : Alumnos) {
+                        S += "" + Alumnos.indexOf(T) + "-" + T + "\n";
                     }
                     System.out.println(S);
                     break;
@@ -108,6 +121,7 @@ public class ClaudiaCortes_Lab2 {
         while (Num > 0) {
             //VALIDAR CADA DATO.
             String nombre = JOptionPane.showInputDialog("Ingrese el Nombre de la clase:  \n");
+
             String seccion = JOptionPane.showInputDialog("Ingrese la seccion de la clase:  \n");
             int max = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad maxima de alumnos:  \n"));
             int uv = Integer.parseInt(JOptionPane.showInputDialog("Ingrese La cantidad de Unidades Valorativas en la clase:  \n"));
@@ -119,6 +133,16 @@ public class ClaudiaCortes_Lab2 {
     public static void Matricular() {
 
     }
+    
+      public static void LogMaestro() {
+
+    }
+
+      
+        public static void LogAlumno() {
+
+    }
+
 
     public static void Crear_Maestro() {
         String S = "";
@@ -170,6 +194,7 @@ con las secciones de la clase) y un buzón. */
         }
         while (Num_Alumnos > 0) {
             String nombre = JOptionPane.showInputDialog("Ingrese el Nombre del Alumno:  \n");
+            String carrera = JOptionPane.showInputDialog("Ingrese el Nombre de la carrera:  \n");
             int Edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad del maestro:  \n"));
             double Dinero_Disponible = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el dinero que posee el alumno:  \n"));
             String usuario = JOptionPane.showInputDialog("Ingrese el Usuario:  \n");
@@ -179,7 +204,7 @@ con las secciones de la clase) y un buzón. */
                 S += "" + Clases.indexOf(T) + "-" + T + "\n";
             }
 
-            Alumno M = new Alumno(nombre, usuario, contra, Edad, Dinero_Disponible);
+            Alumno M = new Alumno(nombre, usuario, contra, Edad, Dinero_Disponible, carrera);
             while (Max > 0) {
                 int Pos = Integer.parseInt(JOptionPane.showInputDialog("Clases Disponibles: \n" + S + "\n Ingrese el Numero de la clase: "));
 
