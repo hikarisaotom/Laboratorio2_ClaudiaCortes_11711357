@@ -108,12 +108,12 @@ public class ClaudiaCortes_Lab2 {
                 String Seccion = ((Clase) Clases.get(Pos)).getseccion();
                 System.out.println("LA SECCION" + Seccion);
                 SEC = Seccion;
-
+                M.setclases(SEC);
                 ((Clase) Clases.get(Pos)).setMaestro(nombre);
                 Max--;
             }//Fin de agregar las clases
             Maestros.add(M);
-            ((Maestro) Maestros.get(Maestros.size() - 1)).setclases(SEC);
+
             Num_Maestros--;
 
         }//Fin del while del maestro.

@@ -14,7 +14,7 @@ public class Maestro {
     private String usuario;
     private String contrasena;
     private int Max_Clases;
-    private ArrayList<String> Clases_Impartidas;
+    private ArrayList<String> Clases_Impartidas= new ArrayList();
 public Maestro(String nombre,String Titulo,double Salario,String usuario,String contra,int Max){
     this.nombre=nombre;
     this.titulo=Titulo;
