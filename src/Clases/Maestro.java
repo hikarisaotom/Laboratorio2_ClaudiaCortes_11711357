@@ -14,16 +14,18 @@ public class Maestro {
     private String usuario;
     private String contrasena;
     private int Max_Clases;
-    private ArrayList<String> Clases_Impartidas= new ArrayList();
-public Maestro(String nombre,String Titulo,double Salario,String usuario,String contra,int Max){
-    this.nombre=nombre;
-    this.titulo=Titulo;
-    this.salario=Salario;
-    this.usuario=usuario;
-    this.contrasena=contra;
-    this.Max_Clases=Max;
-    
-}
+    private ArrayList<String> Clases_Impartidas = new ArrayList();
+
+    public Maestro(String nombre, String Titulo, double Salario, String usuario, String contra, int Max) {
+        this.nombre = nombre;
+        this.titulo = Titulo;
+        this.salario = Salario;
+        this.usuario = usuario;
+        this.contrasena = contra;
+        this.Max_Clases = Max;
+
+    }
+
     public String getNombre() {
         return this.nombre;
     }
@@ -65,7 +67,7 @@ public Maestro(String nombre,String Titulo,double Salario,String usuario,String 
     }
 
     public void setclases(String clasei) {
-         Clases_Impartidas.add(clasei);
+        Clases_Impartidas.add(clasei);
     }
 
     public ArrayList Getclases() {

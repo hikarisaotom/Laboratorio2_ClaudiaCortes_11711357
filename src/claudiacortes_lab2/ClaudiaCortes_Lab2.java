@@ -11,7 +11,8 @@ import javax.swing.text.StyledEditorKit;
  * @author Claudia Cortes
  */
 public class ClaudiaCortes_Lab2 {
-    private static int Indice=0;
+
+    private static int Indice = 0;
     private static ArrayList Clases = new ArrayList();
     private static ArrayList Maestros = new ArrayList();
     private static ArrayList Alumnos = new ArrayList();
@@ -69,7 +70,7 @@ public class ClaudiaCortes_Lab2 {
                                 case "A":
                                     Crear_Alumno();
                                     break;
-                                
+
                                 default:
                                     System.out.println("INVALIDO");
                                     break;
@@ -123,7 +124,7 @@ public class ClaudiaCortes_Lab2 {
         }
         while (Num > 0) {
             //VALIDAR CADA DATO.
-            int Val1=0;
+            int Val1 = 0;
             String nombre = JOptionPane.showInputDialog("Ingrese el Nombre de la clase:  \n");
             /*while (Val1 == 0) {
                 Val1=1;
@@ -135,8 +136,8 @@ public class ClaudiaCortes_Lab2 {
                 nombre = JOptionPane.showInputDialog("Ingrese el Nombre de la clase:  \n");
             }*/
             String seccion = JOptionPane.showInputDialog("Ingrese la seccion de la clase:  \n");
-             int Val2=0;
-            
+            int Val2 = 0;
+
             /*while (Val2== 0) {
                 Val2=1;
                 for (Object T : Clases) {
@@ -153,46 +154,45 @@ public class ClaudiaCortes_Lab2 {
         }
     }
 
-    public static void Matricular(int indice ) {//Alumnos.
-        
-        String Respuesta=JOptionPane.showInputDialog("Ingrese la opcion que desea hacer: \n"
+    public static void Matricular(int indice) {//Alumnos.
+
+        String Respuesta = JOptionPane.showInputDialog("Ingrese la opcion que desea hacer: \n"
                 + "A-Cambiar Nombre"
                 + "B-Usuario"
                 + "C-Contraseña"
                 + "D-Ver secciones"
                 + "E-Matricular"
                 + "F-Saldo Disponible");
-        String S="";
-         for (Object T : Alumnos) {
-                        S += "" + Alumnos.indexOf(T) + "-" + T + "\n";
-                    }
-        switch(Respuesta){
+        String S = "";
+        for (Object T : Alumnos) {
+            S += "" + Alumnos.indexOf(T) + "-" + T + "\n";
+        }
+        switch (Respuesta) {
             case "A":
-                Respuesta=JOptionPane.showInputDialog("Ingrese El nuevo dato");
-               ((Alumno)Alumnos.get(indice)).setNombre(Respuesta);
+                Respuesta = JOptionPane.showInputDialog("Ingrese El nuevo dato");
+                ((Alumno) Alumnos.get(indice)).setNombre(Respuesta);
                 break;
             case "B":
-                 Respuesta=JOptionPane.showInputDialog("Ingrese El nuevo dato");
-               ((Alumno)Alumnos.get(indice)).setUsuario(Respuesta);
+                Respuesta = JOptionPane.showInputDialog("Ingrese El nuevo dato");
+                ((Alumno) Alumnos.get(indice)).setUsuario(Respuesta);
                 break;
             case "C":
-                 Respuesta=JOptionPane.showInputDialog("Ingrese El nuevo dato");
-             ((Alumno)Alumnos.get(indice)).setcontrasena(Respuesta);
+                Respuesta = JOptionPane.showInputDialog("Ingrese El nuevo dato");
+                ((Alumno) Alumnos.get(indice)).setcontrasena(Respuesta);
                 break;
             case "D":
-              
-                JOptionPane.showMessageDialog(null,"Sus Clases: \n"+((Alumno)Alumnos.get(indice)).Getclases());
+
+                JOptionPane.showMessageDialog(null, "Sus Clases: \n" + ((Alumno) Alumnos.get(indice)).Getclases());
                 break;
             case "E":
-                 Respuesta=JOptionPane.showInputDialog("Ingrese El nuevo dato");
-                JOptionPane.showInputDialog(null,"Ingrese la seccion que desea cambiar"+S);
+                Respuesta = JOptionPane.showInputDialog("Ingrese El nuevo dato");
+                JOptionPane.showInputDialog(null, "Ingrese la seccion que desea cambiar" + S);
                 break;
             case "F":
-                 Respuesta=JOptionPane.showInputDialog("Ingrese El nuevo dato");
-                ((Alumno)Alumnos.get(indice)).setdinero(Double.parseDouble(Respuesta));
+                Respuesta = JOptionPane.showInputDialog("Ingrese El nuevo dato");
+                ((Alumno) Alumnos.get(indice)).setdinero(Double.parseDouble(Respuesta));
                 break;
         }
-        
     }
 
     public static void LogMaestro() {
@@ -201,7 +201,7 @@ public class ClaudiaCortes_Lab2 {
         for (int i = 0; i < Maestros.size(); i++) {
             if (((Maestro) Maestros.get(i)).getcontra().equals(Contra) && ((Maestro) Maestros.get(i)).getUsuario().equals(Usuario)) {
                 JOptionPane.showInputDialog("Acceso Permitido: \n");
-                Indice=i;
+                Indice = i;
             } else {
                 JOptionPane.showMessageDialog(null, "ERROR EN LOS DATOS");
             }
@@ -212,14 +212,14 @@ public class ClaudiaCortes_Lab2 {
     public static void LogAlumno() {
         String Usuario = JOptionPane.showInputDialog("Bienvenido Alumno\n Ingrese su Nombre de usuario:");
         String Contra = JOptionPane.showInputDialog("Ingrese su contraseña:");
-        String S="";
-            for (Object T : Clases) {
-                        S += "" + Clases.indexOf(T) + "-" + T + "\n";
-                    }
+        String S = "";
+        for (Object T : Clases) {
+            S += "" + Clases.indexOf(T) + "-" + T + "\n";
+        }
         for (int i = 0; i < Alumnos.size(); i++) {
             if (((Alumno) Alumnos.get(i)).getcontra().equals(Contra) && ((Maestro) Maestros.get(i)).getUsuario().equals(Usuario)) {
-                JOptionPane.showMessageDialog(null,"Acceso Permitido: \n Las clases disponibles son: \n");
-                Indice=i;
+                JOptionPane.showMessageDialog(null, "Acceso Permitido: \n Las clases disponibles son: \n");
+                Indice = i;
                 Matricular(i);
                 break;
             } else {
