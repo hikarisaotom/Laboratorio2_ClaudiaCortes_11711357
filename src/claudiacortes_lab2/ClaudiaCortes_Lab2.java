@@ -131,16 +131,34 @@ public class ClaudiaCortes_Lab2 {
     }
 
     public static void Matricular() {
-
+            
     }
     
       public static void LogMaestro() {
-
-    }
+        String Usuario=JOptionPane.showInputDialog("Bienvenido Maestro\n Ingrese su Nombre de usuario:");
+        String Contra=JOptionPane.showInputDialog("Ingrese su contraseña:");
+          for (int i = 0; i <Maestros.size(); i++) {
+              if (((Maestro)Maestros.get(i)).getcontra().equals(Contra)&&((Maestro)Maestros.get(i)).getUsuario().equals(Usuario)) {
+                  JOptionPane.showInputDialog("Acceso Permitido: \n");
+              }else{
+                  JOptionPane.showMessageDialog(null,"ERROR EN LOS DATOS");
+              }
+          }
+      
+      }
 
       
         public static void LogAlumno() {
-
+        String Usuario=JOptionPane.showInputDialog("Bienvenido Alumno\n Ingrese su Nombre de usuario:");
+        String Contra=JOptionPane.showInputDialog("Ingrese su contraseña:");
+        
+          for (int i = 0; i <Alumnos.size(); i++) {
+              if (((Alumno)Alumnos.get(i)).getcontra().equals(Contra)&&((Maestro)Maestros.get(i)).getUsuario().equals(Usuario)) {
+                  JOptionPane.showInputDialog("Acceso Permitido: \n");
+              }else{
+                  JOptionPane.showMessageDialog(null,"ERROR EN LOS DATOS");
+              }
+          }
     }
 
 
