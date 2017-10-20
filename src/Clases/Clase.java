@@ -9,7 +9,7 @@ public class Clase {
     private String nombre;
     private String seccion;
     private int Max_Alumnos;
-    private String Maestro;
+    private String Maestro="";
     private int UV;
     private ArrayList<String> Alumnos =new ArrayList();
     Clase(){

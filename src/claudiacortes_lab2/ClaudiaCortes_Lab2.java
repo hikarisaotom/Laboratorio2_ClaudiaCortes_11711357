@@ -101,9 +101,9 @@ public class ClaudiaCortes_Lab2 {
     }//Fin del Main.
 
     public static void Crear_Clase() {
-        int Num =0;
-        while (Num<=0){
-        Num = Integer.parseInt(JOptionPane.showInputDialog("Cuantas Clases Desea Matricular:  \n"));
+        int Num = 0;
+        while (Num <= 0) {
+            Num = Integer.parseInt(JOptionPane.showInputDialog("Cuantas Clases Desea Matricular:  \n"));
         }
         while (Num > 0) {
             //VALIDAR CADA DATO.
@@ -176,16 +176,13 @@ con las secciones de la clase) y un buzón. */
             String contra = JOptionPane.showInputDialog("Ingrese la contraseña del alumno:  \n");
             int Max = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el maximo de clases que va matricular:  \n"));
             for (Object T : Clases) {
-                if (((Clase)T).getMaestro()!=null) {
-                      S += "" + Clases.indexOf(T) + "-" + T + "\n";
-                }else{
-                   
-                }
-               
+                S += "" + Clases.indexOf(T) + "-" + T + "\n";
             }
+
             Alumno M = new Alumno(nombre, usuario, contra, Edad, Dinero_Disponible);
             while (Max > 0) {
                 int Pos = Integer.parseInt(JOptionPane.showInputDialog("Clases Disponibles: \n" + S + "\n Ingrese el Numero de la clase: "));
+
                 if (Pos > Clases.size() - 1 || Pos < 0) {
                     System.out.println("ERROR");
                 } else {
