@@ -11,7 +11,7 @@ public class Clase {
     private int Max_Alumnos;
     private String Maestro;
     private int UV;
-    private ArrayList<String> Alumnos;
+    private ArrayList<String> Alumnos =new ArrayList();
     Clase(){
         
     }
